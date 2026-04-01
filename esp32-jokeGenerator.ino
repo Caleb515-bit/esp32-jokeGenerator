@@ -9,8 +9,8 @@
 // ------------------------------------------------------------
 //  CONFIG
 // ------------------------------------------------------------
-const char* WIFI_SSID     = "Redmi Note 9";
-const char* WIFI_PASSWORD = "caleb515";
+const char* WIFI_SSID     = "Your_WiFi_Name";
+const char* WIFI_PASSWORD = "Your_WiFi_Password";
 const char* API_URL = "https://v2.jokeapi.dev/joke/Programming?type=single";
 const int   FETCH_INTERVAL = 15000;
 
