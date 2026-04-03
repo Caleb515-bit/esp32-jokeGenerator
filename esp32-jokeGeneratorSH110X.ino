@@ -6,22 +6,18 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
-// ------------------------------------------------------------
 //  CONFIG
-// ------------------------------------------------------------
 const char* WIFI_SSID     = "Your_WiFi_Name";
 const char* WIFI_PASSWORD = "Your_WiFi_Password";
 const char* API_URL = "https://v2.jokeapi.dev/joke/Programming?type=single";
 const int   FETCH_INTERVAL = 15000;
 
-// ------------------------------------------------------------
 //  OLED
-// ------------------------------------------------------------
+
 Adafruit_SH1106G display(128, 64, &Wire, -1);
 
-// ------------------------------------------------------------
 //  SETUP
-// ------------------------------------------------------------
+
 void setup() {
   Serial.begin(115200);
   delay(1000);
@@ -40,9 +36,8 @@ void setup() {
   fetchJoke();
 }
 
-// ------------------------------------------------------------
+
 //  LOOP
-// ------------------------------------------------------------
 void loop() {
   if (WiFi.status() == WL_CONNECTED) {
     fetchJoke();
@@ -53,9 +48,9 @@ void loop() {
   delay(FETCH_INTERVAL);
 }
 
-// ------------------------------------------------------------
+
 //  Connect to WiFi
-// ------------------------------------------------------------
+
 void connectToWiFi() {
   Serial.print("[WiFi] Connecting...");
   showMessage("WiFi", "Connecting", WIFI_SSID);
@@ -78,9 +73,9 @@ void connectToWiFi() {
   delay(1500);
 }
 
-// ------------------------------------------------------------
+
 //  Fetch joke from API
-// ------------------------------------------------------------
+
 void fetchJoke() {
   Serial.println("[API] Fetching joke...");
   showMessage("Fetching", "joke...", "");
@@ -132,9 +127,9 @@ void showMessage(const char* line1, const char* line2, const char* line3) {
   display.display();
 }
 
-// ------------------------------------------------------------
+
 //  Show joke with word wrap
-// ------------------------------------------------------------
+
 void showJoke(String joke) {
   display.clearDisplay();
   display.setTextColor(SH110X_WHITE);
